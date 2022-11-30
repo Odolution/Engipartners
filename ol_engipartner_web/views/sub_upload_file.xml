@@ -1,0 +1,46 @@
+<odoo>
+    <template id="sub_upload_file" name="Submit your document">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action="sucessfully_submitted" method="POST">
+
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: red;">Upload your file</h3>
+                            <td style="color:grey;">Describe your problem in detail</td>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                        </center>
+                        <div class="col">
+                            <div class="form-outline">
+                                <label class="" for="revision">Revision Comment:</label>
+                                <input type="text" class="form-control" id="revision" placeholder=""
+                                       name="revision" />
+
+                            </div>
+
+                            <div class="form-outline">
+                                <label for="myfile">Select a file:</label><br/>
+                                <input type="file" id="myfile" name="myfile"/>
+                            </div>
+
+
+                        </div>
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+
+
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,117 @@
+<odoo>
+    <template id="modulespecification" name="Roof Specification">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action="/review_form" method="POST">
+
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: black;">Create Project Request</h3>
+                            <td style="color:grey;">Please select the module specifications for your project.</td>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                        </center>
+                         <div class="form-group">
+                            <div class="row mb-4">
+
+                            <div class="col">
+                                   <div class="form-outline">
+                                        <label class="" for="pv_module">PV Module:</label>
+                                <select name="pv_module" class="form-control link style">
+                                    <t t-foreach="pv_module_rec" t-as="pv">
+                                        <option t-esc="pv.name" t-att-value="pv.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                       <label class="" for="module_battery">Battery:</label>
+                                <select name="module_battery" class="form-control link style">
+                                    <t t-foreach="module_battery_rec" t-as="module">
+                                        <option t-esc="module.name" t-att-value="module.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="row mb-4">
+                            <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="modulequantity">Module Quantity:</label>
+                                        <input type="text" class="form-control" id="modulequantity" placeholder=""
+                                               name="modulequantity" required="1"/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="batteryspecification">Battery Specification:</label>
+                                <select name="batteryspecification" class="form-control link style">
+                                    <t t-foreach="battery_specification_rec" t-as="batteryspecification">
+                                        <option t-esc="batteryspecification.name" t-att-value="batteryspecification.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                                </div>
+                            </div>
+<!--                             ssssssss-->
+                               <div class="row mb-4">
+
+                            <div class="col">
+                                   <div class="form-outline">
+                                        <label class="" for="specificationinverter">Inverter:</label>
+                                <select name="specificationinverter" class="form-control link style">
+                                    <t t-foreach="specification_inverter_rec" t-as="specificationinverter">
+                                        <option t-esc="specificationinverter.name" t-att-value="specificationinverter.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="second_inverter">Second Inverter:</label>
+                                <select name="second_inverter" class="form-control link style">
+                                    <t t-foreach="second_inverter_rec" t-as="second">
+                                        <option t-esc="second.name" t-att-value="second.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                                </div>
+                            </div>
+                              <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="inverterquantity">Inverter Quantity:</label>
+                                        <input type="text" class="form-control" id="inverterquantity" placeholder=""
+                                               name="inverterquantity" required="1"/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="secondinverterquantity">Second Inverter Quantity:</label>
+                                        <input type="text" class="form-control" id="secondinverterquantity" placeholder=""
+                                               name="secondinverterquantity" required="1"/>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+
+
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
+

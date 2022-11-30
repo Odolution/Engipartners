@@ -1,0 +1,38 @@
+<odoo>
+    <template id="submit_redline" name="Submit Redline/Revision">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action="/revision_detail"  method="POST">
+
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: red;">Submit Redline/Revision</h3>
+                            <td style="color:grey;">Add Project Details</td>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                        </center>
+                         <div class="col">
+                                    <div class="form-outline">
+                                          <label class="" for="project_project">Select Project:</label>
+                                <select name="project_project" class="form-control link style">
+                                    <t t-foreach="project_project_rec" t-as="project">
+                                        <option t-esc="project.name" t-att-value="project.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                        </div>
+                          <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+
+
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

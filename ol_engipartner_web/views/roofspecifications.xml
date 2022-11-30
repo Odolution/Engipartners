@@ -1,0 +1,113 @@
+<odoo>
+    <template id="roofspecification" name="Roof Specification">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action="/interconnection_specification" method="POST">
+
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: black;">Create Project Request</h3>
+                            <td style="color:grey;">Please select the roof specifications for your project.</td>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                        </center>
+
+                     <div class="form-group">
+                            <div class="row mb-4">
+
+                            <div class="col">
+                                   <div class="form-outline">
+                                         <label class="" for="rooftype">Roof Type:</label>
+                                <select name="rooftype" class="form-control link style">
+                                    <t t-foreach=" roof_type_rec" t-as="roof">
+                                        <option t-esc="roof.name" t-att-value="roof.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                         <label class="" for="rocking_brand">Rocking Brand:</label>
+                                <select name="rocking_brand" class="form-control link style">
+                                    <t t-foreach="rockingbrand_type_rec" t-as="rockingbrand">
+                                        <option t-esc="rockingbrand.name" t-att-value="rockingbrand.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="row mb-4">
+
+                            <div class="col">
+                                   <div class="form-outline">
+                                         <label class="" for="rooftype_material">Roof Type Material:</label>
+                                <select name="rooftype_material" class="form-control link style">
+                                    <t t-foreach="rooftype_material_rec" t-as="rooftype">
+                                        <option t-esc="rooftype.name" t-att-value="rooftype.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="attachment_brand">Attachment Brand:</label>
+                                <select name="attachment_brand" class="form-control link style">
+                                    <t t-foreach="attachment_brand_rec" t-as="attachment">
+                                        <option t-esc="attachment.name" t-att-value="attachment.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                         <div class="row mb-4">
+
+                            <div class="col">
+                                   <div class="form-outline">
+                                        <label class="" for=""></label>
+                                <br/>
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="sealand_brand">Sealand Brand:</label>
+                                <select name="sealand_brand" class="form-control link style">
+                                    <t t-foreach="sealand_brand_rec" t-as="sealand">
+                                        <option t-esc="sealand.name" t-att-value="sealand.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="">
+                                <label class="" for="comments">Other Comments:</label>
+                                <input type="text" class="form-control" id="comments" placeholder=""
+                                       name="comments"/>
+
+
+                            </div>
+
+
+
+                     </div>
+                         <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+
+
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,50 @@
+<odoo>
+    <template id="add_documentation_request" name="Add Documentation Request">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action="/add_documentation_request" method="POST">
+
+
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: black;">Add Documentation Request</h3>
+
+
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+
+                        <div class="btn btn-default">
+                            <label class="btn btn-default" for="option1" style="color:red;">
+                            </label>
+                            <br/>
+                            <input type="radio" id="html" name="option1" value="yes"/>
+                            <label for="html">Yes</label>
+                            <br/>
+                            <label class="btn btn-default" for="option1" style="color:red;">
+                            </label>
+                            <br/>
+
+                            <input type="radio" id="css" name="option1" value="no"/>
+                            <label for="css">No</label>
+
+<!--                            attrs="{'invisible' : [('bill_my_account', '=', False)]}"-->
+
+                        </div>
+                        </center>
+
+                        <br/><br/>
+                     <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+
+
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

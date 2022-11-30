@@ -1,0 +1,68 @@
+<odoo>
+    <template id="review_form" name="Review Form">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action="/special_req"  method="POST">
+
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: black;">Create Project Request</h3>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+
+                         <div class="btn btn-default" required="1">
+                             <label class="btn btn-default" for="Review"><p style="color:red;"> Review and select adders as necessary</p></label>
+                            <br/>
+                            <input type="checkbox" id="battery" name="battery" value="battery"  />
+                            <label for="css">Battery</label>
+                            <br/>
+
+                            <input type="checkbox" id="Ballasted" name="Ballasted" value="Ballasted" />
+                            <label for="html">Ballasted</label>
+                            <br/>
+                            <input type="checkbox" id="Canopy" name="Canopy" value="Canopy" />
+                            <label for="css">Canopy</label>
+                            <br/>
+                            <input type="checkbox" id="Generator" name="Generator" value="Generator" />
+                            <label for="css">Generator</label>
+                            <br/>
+                            <input type="checkbox" id="kW" name="kW" value="kW" />
+                            <label for="css">Greater than 10 kW DC</label>
+                             <br/>
+                            <input type="checkbox" id="11.5" name="11.5" value="11.5" />
+                            <label for="css">Greater than 11.5 kW DC</label>
+                              <br/>
+                            <input type="checkbox" id="15" name="15" value="15"/>
+                            <label for="css">Greater than 15 kW DC</label>
+                              <br/>
+                            <input type="checkbox" id="Groundmount" name="Groundmount" value="Groundmount"/>
+                            <label for="css">Groundmount</label>
+                              <br/>
+                            <input type="checkbox" id="Solar" name="Solar" value="Solar"/>
+                            <label for="css">Solar Stack</label>
+                               <br/>
+                            <input type="checkbox" id="N/A" name="N/A" value="N/A" />
+                            <label for="css">N/A</label>
+
+                        </div>
+                         </center>
+
+
+
+
+
+
+                    <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+
+
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

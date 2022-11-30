@@ -1,0 +1,36 @@
+<odoo>
+    <template id="special_req" name="Special Request">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action="/upload_documentation"  method="POST">
+
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: black;">Create Project Request</h3>
+                            <td style="color:grey;">Add Any Special Request</td>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                        </center>
+                        <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="special">Add Any Special Request:</label>
+                                        <input type="text" class="form-control" id="special" placeholder=""
+                                               name="special" />
+                                    </div>
+                                </div>
+
+                            <br/><br/><br/>
+                         <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+
+
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

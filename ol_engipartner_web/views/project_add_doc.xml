@@ -1,0 +1,48 @@
+<odoo>
+    <template id="project_add_doc" name="Project Add Documentation">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action="/documentation_detail"  method="POST">
+                          <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: black;">Add Documentation</h3>
+
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+
+                           <div class="btn btn-default">
+                            <label class="btn btn-default" for="option2" style="color:red;">If you have an open project that want to add a
+                                Document Request, select Yes.
+                            </label>
+                            <br/>
+                            <input type="radio" id="html" name="option2" value="yes"/>
+                            <label for="html">Yes</label>
+                            <br/>
+                            <label class="btn btn-default" for="option2" style="color:red;">If you do NOT have an open project to add a Document Request, select No.
+                            </label>
+                            <br/>
+
+                            <input type="radio" id="css" name="option2" value="no"/>
+                            <label for="css">No</label>
+
+<!--                            attrs="{'invisible' : [('bill_my_account', '=', False)]}"-->
+
+                        </div>
+                        </center>
+
+
+                        <br/><br/>
+                     <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+
+
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

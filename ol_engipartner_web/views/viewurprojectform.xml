@@ -1,0 +1,277 @@
+<odoo>
+    <template id="viewurprojectform" name="View Your Project Form">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action=""  method="POST">
+                          <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: black;">View Your Project Form</h3>
+
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                        </center>
+                         <div class="col">
+<!--                            ?????????-->
+                              <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="namee">Project Name:</label>
+                                        <input type="text" class="form-control" id="namee" placeholder=""
+                                               name="namee"  t-att-value="request.session['name']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="cityy">City:</label>
+                                        <input type="text" class="form-control" id="cityy" placeholder=""
+                                               name="cityy" t-att-value="request.session['city']"/>
+                                    </div>
+                                </div>
+                              </div>
+<!--                             ???????????-->
+                                 <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="addresss">Address:</label>
+                                        <input type="text" class="form-control" id="addresss" placeholder=""
+                                               name="addresss"  t-att-value="request.session['address']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="states">State:</label>
+                                        <input type="text" class="form-control" id="states" placeholder=""
+                                               name="states" t-att-value="request.session['state']"/>
+                                    </div>
+                                </div>
+                              </div>
+                               <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="countryy">Country:</label>
+                                        <input type="text" class="form-control" id="countryy" placeholder=""
+                                               name="countryy"  t-att-value="request.session['country'] "/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="authorityy">Authority Having Jurisdiction:</label>
+                                        <input type="text" class="form-control" id="authorityy" placeholder=""
+                                               name="authorityy" t-att-value="request.session['authority']"/>
+                                    </div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="business_unitt">Business unit:</label>
+                                        <input type="text" class="form-control" id="business_unitt" placeholder=""
+                                               name="business_unitt"  t-att-value="request.session['business_unit']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="external_idd">External ID:</label>
+                                        <input type="text" class="form-control" id="external_idd" placeholder=""
+                                               name="external_idd" t-att-value="request.session['external']"/>
+                                    </div>
+                                </div>
+                              </div>
+                             <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="external_linkss">External Link:</label>
+                                        <input type="text" class="form-control" id="external_linkss" placeholder=""
+                                               name="external_linkss"  t-att-value="request.session['link']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="utilityy">Utility:</label>
+                                        <input type="text" class="form-control" id="utilityy" placeholder=""
+                                               name="utilityy" t-att-value="request.session['utility']"/>
+                                    </div>
+                                </div>
+                              </div>
+                             <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="roof_typee">Roof Type:</label>
+                                        <input type="text" class="form-control" id="roof_typee" placeholder=""
+                                               name="roof_typee"  t-att-value="request.session['rooftype']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="roof_type_material">Roof Type Material:</label>
+                                        <input type="text" class="form-control" id="roof_type_materiall" placeholder=""
+                                               name="roof_type_materiall" t-att-value="request.session['rooftype_material']"/>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="rocking_brandd">Rocking Brand:</label>
+                                        <input type="text" class="form-control" id="rocking_brandd" placeholder=""
+                                               name="rocking_brandd"  t-att-value="request.session['rocking_brand']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="attachment_brandd">Attachment Brand:</label>
+                                        <input type="text" class="form-control" id="attachment_brandd" placeholder=""
+                                               name="attachment_brandd" t-att-value="request.session['attachment_brand']"/>
+                                    </div>
+                                </div>
+                              </div>
+                             <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="sealand_brandd">Sealand Brand:</label>
+                                        <input type="text" class="form-control" id="sealand_brandd" placeholder=""
+                                               name="sealand_brandd"  t-att-value="request.session['sealand_brand']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="other_commentss">Other Comments:</label>
+                                        <input type="text" class="form-control" id="other_commentss" placeholder=""
+                                               name="other_commentss" t-att-value="request.session['comments']"/>
+                                    </div>
+                                </div>
+                              </div>
+                             <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="main_buss">Main Bus:</label>
+                                        <input type="text" class="form-control" id="main_buss" placeholder=""
+                                               name="main_buss"  t-att-value="request.session['busbaarrating']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="main_breakerr">Main Breaker:</label>
+                                        <input type="text" class="form-control" id="main_breakerr" placeholder=""
+                                               name="main_breakerr" t-att-value="request.session['mainbreaker']"/>
+                                    </div>
+                                </div>
+                              </div>
+                             <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="method_preferencee">Method Preference:</label>
+                                        <input type="text" class="form-control" id="method_preferencee" placeholder=""
+                                               name="method_preferencee"  t-att-value="request.session['methodpreference']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="pv_modulee">PV Module:</label>
+                                        <input type="text" class="form-control" id="pv_modulee" placeholder=""
+                                               name="pv_modulee" t-att-value="request.session['pv_module']"/>
+                                    </div>
+                                </div>
+                              </div>
+                             <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="batteryy">Module Battery:</label>
+                                        <input type="text" class="form-control" id="batteryy" placeholder=""
+                                               name="batteryy"  t-att-value="request.session['module_battery']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="module_quantityy">Module Quantity:</label>
+                                        <input type="text" class="form-control" id="module_quantityy" placeholder=""
+                                               name="module_quantityy" t-att-value="request.session['modulequantity']"/>
+                                    </div>
+                                </div>
+                              </div>
+                             <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="battery_specc">Battery Specification:</label>
+                                        <input type="text" class="form-control" id="battery_specc" placeholder=""
+                                               name="battery_specc"  t-att-value="request.session['batteryspecification']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="inverterr">Inverter:</label>
+                                        <input type="text" class="form-control" id="inverterr" placeholder=""
+                                               name="inverterr" t-att-value="request.session['specificationinverter']"/>
+                                    </div>
+                                </div>
+                              </div>
+                                <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="sec_inverterr">Second Inverter:</label>
+                                        <input type="text" class="form-control" id="sec_inverterr" placeholder=""
+                                               name="sec_inverterr"  t-att-value="request.session['second_inverter']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="sec_quantityy">Second Inverter Quantity:</label>
+                                        <input type="text" class="form-control" id="sec_quantityy" placeholder=""
+                                               name="sec_quantityy" t-att-value="request.session['secondinverterquantity']"/>
+                                    </div>
+                                </div>
+                              </div>
+                             <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="special_reqq">Special Request:</label>
+                                        <input type="text" class="form-control" id="special_reqq" placeholder=""
+                                               name="special_reqq"  t-att-value="request.session['special']"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="inverter_quantityy">Inverter Quantity:</label>
+                                        <input type="text" class="form-control" id="inverterr" placeholder=""
+                                               name="inverter_quantityy" t-att-value="request.session['inverterquantity']"/>
+                                    </div>
+                                </div>
+                              </div>
+
+
+                         </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
