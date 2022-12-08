@@ -38,6 +38,13 @@
         'views/viewurproject.xml',
         'views/viewurprojectform.xml',
         'views/doc_detail_submission.xml',
+        'views/advertisement_form.xml',
+        'views/ownsolarinstallation.xml',
+        'views/planspermonth.xml',
+        'views/contactform.xml',
+        'views/visitordatasubmit.xml',
+        'views/visitordatasubmit2.xml',
+        'views/contactuss.xml',
         'security/ir.model.access.csv',
 
 

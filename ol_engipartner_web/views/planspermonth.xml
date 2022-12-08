@@ -1,0 +1,65 @@
+<odoo>
+    <template id="planspermonth" name="Plans Per Month">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action="/contactform"  method="POST">
+                         <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001"
+                                 data-snippet="s_title" data-scroll-background-ratio="1" data-name="Title">
+                            <span class="s_parallax_bg oe_img_bg"
+                                  style="background-image: url('/web/image/website.s_banner_default_image'); background-position: 50% 0;"/>
+                            <div class="o_we_bg_filter bg-black-50"/>
+                            <div class="container">
+                                <h1> Partner with us</h1>
+                            </div>
+                        </section>
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <p style="color: black; font-size:20px; ">We accelerate turnaround times, reduce soft costs
+                                and improve profitability
+                            </p>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 75%"
+                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+
+                            <div class="btn btn-default">
+                                <p style="color: black; font-size:20px; ">How many plans per month would you need?
+                            </p>
+                                <label class="btn btn-default" for="option">
+                                </label>
+                                <br/>
+                                <input type="radio" id="html" name="option2" value="approx3"/>
+                                <label for="html" class="align-left">Approximately 3-6
+                                </label>
+                                <br/>
+                                <input type="radio" id="css" name="option2" value="approx7"/>
+                                <label for="css" class="align-left">Approximately 7-12
+                                </label>
+                                <br/>
+                                 <input type="radio" id="css" name="option2" value="approx13"/>
+                                <label for="css" class="align-left;">Approximately 13+
+                                </label>
+
+
+
+                            </div>
+                        </center>
+
+                        <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+                                <button type="submit" class="btn btn-dark">Next</button>
+                            </div>
+                        </div>
+                    </form>
+                    <center>
+                    <p style="color: black; font-size:15px; ">Please Answer The Question Truthfully
+                            </p></center>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
