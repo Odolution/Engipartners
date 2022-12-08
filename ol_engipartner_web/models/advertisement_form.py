@@ -83,7 +83,7 @@ class visitordatasubmit(http.Controller):
 
         }
 
-        lead = request.env['crm.lead'].create(lead)
+        lead = request.env['crm.lead'].sudo().create(lead)
         return request.render('ol_engipartner_web.visitordatasubmit')
 
 class contactuss(http.Controller):
@@ -113,6 +113,6 @@ class visitordatasubmit2(http.Controller):
             'phone': post.get('cntctphoneno'),
         }
 
-        lead = request.env['crm.lead'].create(lead)
+        lead = request.env['crm.lead'].sudo().create(lead)
 
         return request.render('ol_engipartner_web.visitordatasubmit2')
