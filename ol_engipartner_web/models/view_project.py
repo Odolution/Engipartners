@@ -33,7 +33,8 @@ class viewurprojectform(http.Controller):
         request.session['business_unit'] = projecct.business_unit.name
         request.session['rooftype'] = projecct.roof_type.name
         request.session['rooftype_material'] = projecct.roof_type_material.name
-        request.session['attachment_brand'] = projecct.rocking_brand.name
+        request.session['rocking_brand']=projecct.rocking_brand.name
+        request.session['attachment_brand'] = projecct.attachment_brand.name
         request.session['sealand_brand'] = projecct.sealand_brand.name
         request.session['comments'] = projecct.other_comments
         request.session['busbaarrating'] = projecct.main_bus

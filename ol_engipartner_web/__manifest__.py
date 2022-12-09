@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoolution.
 {
-    "name": "Website Engi Partner",
+    "name": "Website Engipartners",
 
     "author": "Odoolution",
 
