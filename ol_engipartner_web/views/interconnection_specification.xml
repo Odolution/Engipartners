@@ -35,7 +35,7 @@
                          <div class="row mb-4">
                                 <div class="col">
                                     <div class="form-outline">
-                                        <label class="" for="mainbreaker">Main Breaker Rating::</label>
+                                        <label class="" for="mainbreaker">Main Breaker Rating:</label>
                                         <input type="text" class="form-control" id="mainbreaker" placeholder=""
                                                name="mainbreaker" required="1"/>
                                     </div>
