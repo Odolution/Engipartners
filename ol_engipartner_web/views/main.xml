@@ -1,0 +1,100 @@
+<odoo>
+    <template id="new_project" name="New Project">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+
+                    <center>
+                        <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                        <h3 style="color: black;">Create Project Request</h3>
+                        <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                    </center>
+                    <div class="container">
+
+
+                        <form class="mt32 appointment_submit_form" t-attf-action="/createproject" method="POST">
+
+
+
+<!--                            <label for="projects">Select Request Type:</label> <br/>-->
+<!--                                <div class="btn btn-default">-->
+<!--                            <label class="btn btn-default" for="bill">What's your average monthly utility bill?</label>-->
+<!--                            <br/>-->
+<!--                            <input type="radio" id="first" name="bill" value="1" required="1"/>-->
+<!--                            <label for="html">$100-$150</label>-->
+<!--                            <br/>-->
+<!--                            <input type="radio" id="second" name="bill" value="2" required="1"/>-->
+<!--                            <label for="css">$150-$200</label>-->
+<!--                            <br/>-->
+<!--                            <input type="radio" id="third" name="bill" value="3" required="1"/>-->
+<!--                            <label for="css">$250-$300</label>-->
+<!--                            <br/>-->
+<!--                            <input type="radio" id="fourth" name="bill" value="4" required="1"/>-->
+<!--                            <label for="css">$300</label>-->
+
+<!--                        </div>-->
+<!--                         <div class="btn btn-default">-->
+<!--                            <label class="btn btn-default" for="projectss">Select Request Type</label>-->
+<!--                            <br/>-->
+<!--                            <input type="radio" id="first" name="projectss" value="project" required="1"/>-->
+<!--                            <label for="html">Project</label>-->
+<!--                            <br/>-->
+<!--                            <input type="radio" id="second" name="projectss" value="documentation" required="1"/>-->
+<!--                            <label for="css">Documentation</label>-->
+<!--                            <br/>-->
+<!--                            <input type="radio" id="third" name="projectss" value="quote" required="1"/>-->
+<!--                            <label for="css">Quote</label>-->
+<!--                            <br/>-->
+
+
+<!--                        </div>-->
+                        <select name="projectlist" for="projectform" class=" btn btn-dark">
+                            <option value="newproject">Project</option>
+                            <option value="documentation">Documentation</option>
+                            <option value="quote">Quote</option>
+                        </select>
+
+                        <!--                                <div class="dropdown">-->
+                        <!--                                    <div class="w3-panel w3-border">-->
+                        <!--                                        <p>Select Request Type</p>-->
+                        <!--                                    </div>-->
+                        <!--                                    <button class="btn btn-dark" type="button" id="dropdownMenuButton"-->
+                        <!--                                            data-toggle="dropdown" aria-expanded="true">-->
+                        <!--                                        <span>None</span>-->
+                        <!--                                        <i class="fa fa-caret-down"></i>-->
+                        <!--                                    </button>-->
+                        <!--                                    <ul class="dropdown-menu">-->
+                        <!--                                        <li>-->
+                        <!--                                            <a class="dropdown-item" href="#">Project</a>-->
+                        <!--                                        </li>-->
+                        <!--                                        <li>-->
+                        <!--                                            <a class="dropdown-item" href="#">Documentation</a>-->
+                        <!--                                        </li>-->
+                        <!--                                        <li>-->
+                        <!--                                            <a class="dropdown-item" href="#">Quote</a>-->
+                        <!--                                        </li>-->
+                        <!--                                    </ul>-->
+                        <!--                                </div>-->
+
+
+
+
+                    <div class="row">
+                        <div class="col-8"></div>
+                        <div class="col-4 my-3">
+
+
+                            <button type="submit" class="btn btn-dark">SUBMIT</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</t>
+        </template>
+
+
+        </odoo>

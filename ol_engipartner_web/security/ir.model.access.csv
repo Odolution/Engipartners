@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.business_unit,access_business_unit,ol_engipartner_web.model_business_unit,base.group_user,1,1,1,1
+access.roof_type,access_roof_type,ol_engipartner_web.model_roof_type,base.group_user,1,1,1,1
+access.rooftype_material,access_rooftype_material,ol_engipartner_web.model_rooftype_material,base.group_user,1,1,1,1
+access.rocking_brand,access_rocking_brand,ol_engipartner_web.model_rocking_brand,base.group_user,1,1,1,1
+access.attachment_brand,access_attachment_brand,ol_engipartner_web.model_attachment_brand,base.group_user,1,1,1,1
+access.sealand_brand,access_sealand_brand,ol_engipartner_web.model_sealand_brand,base.group_user,1,1,1,1
+access.method_preference,access_method_preference,ol_engipartner_web.model_method_preference,base.group_user,1,1,1,1
+access.pv_module,access_pv_module,ol_engipartner_web.model_pv_module,base.group_user,1,1,1,1
+access.module_battery,access_module_battery,ol_engipartner_web.model_module_battery,base.group_user,1,1,1,1
+access.battery_specification,access_battery_specification,ol_engipartner_web.model_battery_specification,base.group_user,1,1,1,1
+access.specification_inverter,access_specification_inverter,ol_engipartner_web.model_specification_inverter,base.group_user,1,1,1,1
+access.second_inverter,access_second_inverter,ol_engipartner_web.model_second_inverter,base.group_user,1,1,1,1
+access.document_type,access_document_type,ol_engipartner_web.model_document_type,base.group_user,1,1,1,1
+access.stamp_type,access_stamp_type,ol_engipartner_web.model_stamp_type,base.group_user,1,1,1,1
+access.revision_submission,access_revision_submission,ol_engipartner_web.model_revision_submission,base.group_user,1,1,1,1
+access.stamp_typedoc,access_stamp_typedoc,ol_engipartner_web.model_stamp_typedoc,base.group_user,1,1,1,1

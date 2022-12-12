@@ -1,0 +1,36 @@
+<odoo>
+    <template id="documentation_type" name="Documentation Type">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action=""  method="POST">
+
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: black;">Documentation Type</h3>
+
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                        </center>
+                        <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="special">Document Type:</label>
+                                        <input type="text" class="form-control" id="special" placeholder=""
+                                               name="special" />
+                                    </div>
+                                </div>
+
+                            <br/><br/><br/>
+                         <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+
+
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,192 @@
+<odoo>
+    <template id="create_new_project" name="Create New Project">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <form class="mt32 appointment_submit_form" t-attf-action="/roofspecifications"  method="POST">
+
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: black;">Create Project Request</h3>
+                            <td style="color:grey;">Add Project Details</td>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                        </center>
+                        <div class="form-group">
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="name">Project Name:</label>
+                                        <input type="text" class="form-control" id="name" placeholder=""
+                                               name="name" required="1"/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="city">City:</label>
+                                        <input type="text" class="form-control" id="city" placeholder=""
+                                               name="city" required="1"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                            <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="address">Address:</label>
+                                        <input type="text" class="form-control" id="address" placeholder=""
+                                               name="address" required="1"/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                          <label class="" for="country">Country:</label>
+                                <select name="country" class="form-control link style">
+                                    <t t-foreach=" country_rec" t-as="country">
+                                        <option t-esc="country.name" t-att-value="country.id"/>
+
+                                    </t>
+                                </select>
+                                    </div>
+<!--                                    <div class="form-outline">-->
+<!--                                        <label class="" for="city">Country:</label>-->
+<!--                                        <input type="text" class="form-control" id="country" placeholder=""-->
+<!--                                               name="country" />-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+<!--                            test-->
+                            <div class="row mb-4">
+                            <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="state">State:</label>
+                                <select name="state" class="form-control link style">
+                                    <t t-foreach=" state_rec" t-as="state">
+                                        <option t-esc="state.name" t-att-value="state.id"/>
+
+                                    </t>
+                                </select>
+<!--                                        <label class="" for="state">State:</label>-->
+<!--                                <br/>-->
+<!--                                <select name="state" for="state" class="btn btn-primary">-->
+<!--                                    <option value="alabama">Alabama</option>-->
+<!--                                    <option value="alaska">Alaska</option>-->
+<!--                                    <option value="arizona">Arizona</option>-->
+<!--                                    <option value="arkansas">Arkansas</option>-->
+<!--                                    <option value="california">California</option>-->
+<!--                                    <option value="colorado">Colorado</option>-->
+<!--                                    <option value="connecticut">Connecticut</option>-->
+<!--                                    <option value="delaware">Delaware</option>-->
+<!--                                    <option value="District">District of Columbia</option>-->
+<!--                                    <option value="florida">Florida</option>-->
+<!--                                    <option value="georgia">Georgia</option>-->
+<!--                                    <option value="hawaii">Hawaii</option>-->
+<!--                                    <option value="idaho">Idaho</option>-->
+<!--                                    <option value="lllinios">lllinois</option>-->
+<!--                                    <option value="indiana">Indiana</option>-->
+<!--                                    <option value="iowa">Iowa</option>-->
+<!--                                    <option value="kansas">Kansas</option>-->
+<!--                                    <option value="kentucy">Kentucy</option>-->
+<!--                                    <option value="louisiana">Louisiana</option>-->
+<!--                                    <option value="maine">Maine</option>-->
+<!--                                    <option value="maryland">Maryland</option>-->
+<!--                                    <option value="massachusetts">Massachusetts</option>-->
+<!--                                    <option value="michigan">Michigan</option>-->
+<!--                                    <option value="minnesota">Minnesota</option>-->
+<!--                                    <option value="mississippi">Mississippi</option>-->
+<!--                                    <option value="missouri">Missouri</option>-->
+<!--                                    <option value="montana">Montana</option>-->
+<!--                                    <option value="nebraska">Nebraska</option>-->
+<!--                                    <option value="nevada">Nevada</option>-->
+<!--                                    <option value="hampshire">New Hampshire</option>-->
+<!--                                    <option value="jersey">New Jersey</option>-->
+<!--                                    <option value="maxico">New Mexico</option>-->
+<!--                                    <option value="york">New York</option>-->
+<!--                                    <option value="california">North California</option>-->
+<!--                                    <option value="dakota">North Dakota</option>-->
+<!--                                    <option value="ohio">Ohio</option>-->
+<!--                                    <option value="oklahoma">Oklahoma</option>-->
+<!--                                    <option value="oregon">Oregon</option>-->
+<!--                                    <option value="pennsylvania">Pennsylvaina</option>-->
+<!--                                    <option value="rhode">Rhode Island</option>-->
+<!--                                    <option value="South">South Carolina</option>-->
+<!--                                    <option value="southdakota">South Dakota</option>-->
+<!--                                    <option value="tennessee">Tennessee</option>-->
+<!--                                    <option value="texas">Texas</option>-->
+<!--                                    <option value="utah">Utah</option>-->
+<!--                                    <option value="vermont">Vermont</option>-->
+<!--                                    <option value="virgina">Virgina</option>-->
+<!--                                    <option value="washington">Washington</option>-->
+<!--                                    <option value="westvirgina">West Virgina</option>-->
+<!--                                    <option value="wisconsin">Wisconsin</option>-->
+<!--                                    <option value="wyoming">Wyoming</option>-->
+<!--                                    <option value="puerto">Puerto Rico</option>-->
+<!--                                </select>-->
+                            </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                         <label class="" for="authority">Authority Having Jurisdiction:</label>
+                                        <input type="text" class="form-control" id="authority" placeholder=""
+                                               name="authority" required="1"/>
+                                    </div>
+                                </div>
+                            </div>
+<!--                          test  -->
+<!--another test-->
+                            <div class="row mb-4">
+
+                                <div class="col">
+                                    <div class="form-outline">
+                                         <label class="" for="external">Project External ID:</label>
+                                        <input type="text" class="form-control" id="external" placeholder=""
+                                               name="external" />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="business_unit">Business Unit:</label>
+                                <select name="business_unit" class="form-control link style">
+                                    <t t-foreach="business_unit_rec" t-as="unit">
+                                        <option t-esc="unit.name" t-att-value="unit.id"/>
+
+                                    </t>
+                                </select>
+                            </div>
+                                </div>
+                            </div>
+
+
+
+
+<!--                            another test-->
+
+                            <div class="">
+                                <label class="" for="utility">Utility:</label>
+                                <input type="text" class="form-control" id="utility" placeholder=""
+                                       name="utility" required="1"/>
+
+
+                            </div>
+                            <div class="">
+                                <label class="" for="link">External Links:</label>
+                                <input type="text" class="form-control" id="link" placeholder=""
+                                       name="link"/>
+
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+
+
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

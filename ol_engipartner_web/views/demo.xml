@@ -1,0 +1,186 @@
+<odoo>
+
+    <record model="ir.ui.view" id="project_project_inherit">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+
+            <notebook>
+                <page string="New Project Details">
+                    <group>
+                    <group>
+                        <field name="external_id"/>
+                        <field name="address"/>
+                        <field name="city"/>
+                        <field name="utility"/>
+                        <field name="external_links"/>
+                    </group>
+
+                <group>
+                    <field name="state"/>
+                    <field name="country"/>
+                    <field name="jurisdiction"/>
+                    <field name="business_unit"/>
+
+
+                </group>
+                    </group>
+
+
+                </page>
+            </notebook>
+            <notebook>
+                <page string="Roof Specification Details">
+                    <group>
+                    <group string="Roof Specification Details" >
+                        <field name="roof_type"/>
+                        <field name="roof_type_material"/>
+                        <field name="rocking_brand"/>
+                        <field name="attachment_brand"/>
+                        <field name="sealand_brand"/>
+                        <field name="other_comments"/>
+
+                    </group>
+                    <group string="Interconnection">
+                    <field name="method_preference"/>
+                    <field name="main_bus"/>
+                    <field name="main_breaker"/>
+
+                    </group>
+                    </group>
+
+
+
+                </page>
+            </notebook>
+             <notebook>
+                <page string="Module Specification Details">
+                    <group>
+                    <group string="Module Specification Details" >
+                        <field name="pv_module"/>
+                        <field name="battery"/>
+                        <field name="module_quantity"/>
+                        <field name="battery_spec"/>
+
+                    </group>
+                    <group string="">
+                    <field name="inverter"/>
+                    <field name="sec_inverter"/>
+                    <field name="inverter_quantity"/>
+                    <field name="sec_quantity"/>
+
+
+                    </group>
+                    </group>
+
+
+
+                </page>
+            </notebook>
+             <notebook>
+                <page string="Special request and documentation ">
+                    <group>
+                    <group string="Special request and documentation" >
+                        <field name="special_req"/>
+                        <field name="upload_doc"/>
+
+
+                    </group>
+                    <group string="Review">
+<!--                    <field name="inverter"/>-->
+                    <field name="another_battery"/>
+                    <field name="ballasted"/>
+                    <field name="canopy"/>
+                    <field name="generator"/>
+                    <field name="kw"/>
+                    <field name="greater"/>
+                    <field name="than"/>
+                    <field name="groundmount"/>
+                    <field name="solar"/>
+                    <field name="naa"/>
+
+
+
+                    </group>
+                    </group>
+
+
+
+                </page>
+            </notebook>
+            <notebook>
+                <page string="Document Type">
+                    <group>
+                    <group string="" >
+                        <field name="doc_type"/>
+                        <field name="stamp_type"/>
+                        <field name="permit_number"/>
+                        <field name="installation_date"/>
+                        <field name="inspection_date"/>
+
+                    </group>
+                    <group string="">
+
+
+
+                    </group>
+                    </group>
+
+
+
+                </page>
+            </notebook>
+             <notebook>
+                <page string="Revision Detail">
+                    <group>
+                    <group string="" >
+                        <field name="revision_submission"/>
+                        <field name="revision_comment"/>
+                        <field name="file_attachment"/>
+
+
+                    </group>
+                    <group string="">
+
+
+
+                    </group>
+                    </group>
+
+
+
+                </page>
+            </notebook>
+            <notebook>
+                <page string="Documentation Details">
+                    <group>
+                    <group string="Details" >
+                        <field name="stamp_type_doc"/>
+                        <field name="other_commments_doc"/>
+
+
+
+                    </group>
+                    <group string="Checkboxes">
+                         <field name="eng_plans"/>
+                        <field name="eng_letter"/>
+                        <field name="inspection_form"/>
+                        <field name="cvc_permit"/>
+                        <field name="ec_permit"/>
+                        <field name="coi"/>
+
+
+
+                    </group>
+                    </group>
+
+
+
+                </page>
+            </notebook>
+
+        </field>
+    </record>
+</odoo>
