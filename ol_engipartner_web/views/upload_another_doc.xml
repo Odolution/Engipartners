@@ -1,21 +1,18 @@
 <odoo>
-    <template id="upload_documentation" name="Upload Documentation">
+    <template id="upload_another_doc" name="Upload Documentation">
         <t t-call="website.layout">
             <div class="oe_structure">
                 <div class="container">
-                    <form class="mt32 appointment_submit_form" enctype="multipart/form-data" t-attf-action="/project_add_doc"  method="POST" >
+                    <form class="mt32 appointment_submit_form" t-attf-action="/another_doc_upload_sucessfully" enctype="multipart/form-data"  method="POST">
                           <center>
                             <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
                             <h3 style="color: black;">Upload Documentation</h3>
-                              <td style="color: red;">Once the file is uploaded you wont be able to see here. But you can see those attachment in Project later</td>
-
                             <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
                         </center>
-
-                         <div class="col">
+                          <div class="col">
                                     <div class="form-outline">
-                                        <label class="" for="upload_doc">Upload Documentation:</label><br/>
-                                            <input name="attachment" type="file" class="file"  data-show-upload="true" data-show-caption="true"  lass="file" data-show-preview="true" multiple="true"/>
+                                        <label class="" for="upload_another_doc">Upload Documentation:</label><br/>
+                                            <input name="attachments" type="file" class="file"  data-show-upload="true" data-show-caption="true"  lass="file" data-show-preview="true" multiple="true"/>
 
                                     </div>
                                 </div>

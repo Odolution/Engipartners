@@ -9,7 +9,7 @@
                             <span class="s_parallax_bg oe_img_bg"
                                   style="background-image: url('/web/image/website.s_banner_default_image'); background-position: 50% 0;"/>
                             <div class="o_we_bg_filter bg-black-50"/>
-                            <div class="container">
+                            <div class="container" style="padding-left:30px" >
                                 <h1> Partner with us</h1>
                             </div>
                         </section>
@@ -26,19 +26,19 @@
 
 
                             <div class="btn btn-default">
-                                <p style="color: black; font-size:20px; ">Do You own Solar a Installation, Construction or
+                                <p style="color: black; font-size:20px; ">Do You own a Solar  Installation, Construction or
                                 Contracting Company?
                             </p>
                                 <label class="btn btn-default" for="option">
                                 </label>
                                 <br/>
-                                <input type="radio" id="html" name="option" value="yesiown"/>
-                                <label for="html" class="align-left" style="color: #39FF14; ">Yes- I own a solar installation, construction or
+
+                                <label for="html" class="align-left" style="color: #39FF14; "><input type="radio" id="html" name="option" value="yesiown"/> Yes- I own a solar installation, construction or
                                     contracting company
                                 </label>
                                 <br/>
-                                <input type="radio" id="css" name="option" value="noidont"/>
-                                <label for="css" class="align-left" style="color:#FF5E5E" >No- I don't own a solar installation, construction
+
+                                <label for="css" class="align-left" style="color:#FF5E5E" ><input type="radio" id="css" name="option" value="noidont"/> No- I don't own a solar installation, construction
                                     or contracting company
                                 </label>
 
@@ -54,7 +54,7 @@
                         </div>
                     </form>
                     <center>
-                    <p style="color: black; font-size:15px; ">Please Answer The Question Truthfully
+                    <p style="color: black; font-size:15px; ">
                             </p></center>
                 </div>
             </div>

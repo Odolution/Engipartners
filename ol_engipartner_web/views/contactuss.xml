@@ -57,7 +57,7 @@
 
                             </div>
                         </div>
-                        <input type="checkbox" id="tick" name="tick" value="tick"/> <label for="html">By checking this box and clicking the "Done" button below, I verify that the number above is my email address and consent to receive emails via automated technology to this number regarding product and/or services offers by or on behalf of Engipartners. I also consent to receive telemarketing calls from or on behalf of Engipartners that may be auto-dialed. I agree to the Terms of Use and the Privacy Policy. </label>
+                        <label for="html"><input type="checkbox" id="tick" name="tick" value="tick"/>  By checking this box and clicking the "Done" button below, I verify that the number above is my email address and consent to receive emails via automated technology to this number regarding product and/or services offers by or on behalf of Engipartners. I also consent to receive telemarketing calls from or on behalf of Engipartners that may be auto-dialed. I agree to the Terms of Use and the Privacy Policy. </label>
 
 
 

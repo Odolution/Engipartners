@@ -284,39 +284,49 @@ class project_add_doc(http.Controller):
 
     @http.route(['/project_add_doc'], type='http', auth="user", website=True, csrf=False)
     def index(self, **post):
+        print('rafay',post.get('attachment'))
+        print('hunain', post.get('file'))
+        print('multiple files',request.httprequest.files.getlist('attachment'))
+
+
+
         attachments = request.env['ir.attachment']
-        name = str(post.get('attachment').filename)
-        file = post.get('attachment')
-        print('heyb',name,'noice', file)
+        listt = []
+        for i in request.httprequest.files.getlist('attachment'):
+            print(i)
+            name = str(i.filename)
+            file = i
+            print('heyb',name,'noice', file)
 
+            print(type(file))
 
+            request.registry['upload_doc'] = file
+            data = file.read()
+            file.close()
+            print(type(data))
 
+            request.registry['upload_doc_new'] = data
+            attachment_id = attachments.sudo().create({
+                'name': name,
+                # 'res_id': ,
+                'type': 'binary',
+                # 'res_model': 'project.project',
 
+                'datas' : base64.encodebytes(data),
+            })
+            value = {
+                'attachment' : attachment_id
+            }
+            request.session["attachment_id"]=attachment_id.id
 
-        print(type(file))
+            # print(request.session['attachment_id'])
+            print(request.registry['upload_doc'])
+            print('hello')
+            listt.append(attachment_id.id)
 
-        request.registry['upload_doc'] = file
-        data = file.read()
-        file.close()
-        print(type(data))
-
-        request.registry['upload_doc_new'] = data
-        attachment_id = attachments.sudo().create({
-            'name': name,
-            # 'res_id': ,
-            'type': 'binary',
-            # 'res_model': 'project.project',
-
-            'datas' : base64.encodebytes(data),
-        })
-        value = {
-            'attachment' : attachment_id
-        }
-        request.session["attachment_id"]=attachment_id.id
-
-        # print(request.session['attachment_id'])
-        print(request.registry['upload_doc'])
-        print('hello')
+        print(listt, 'List Values')
+        # request.session['listt'] = request.httprequest.files.getlist(listt)
+        request.session['listt'] = listt
 
 
         return request.render('ol_engipartner_web.project_add_doc',value)
@@ -367,6 +377,7 @@ class documentation_detail(http.Controller):
         print(request.session['Solar'])
         print(request.session['N/A'])
         print(request.registry['upload_doc'])
+        print(request.session['listt'])
 
         # file = request.session['upload_doc']
         lead = {
@@ -416,7 +427,7 @@ class documentation_detail(http.Controller):
         print('value of lead is', leads)
         request.session['leads'] = leads.id
         print(request.session["attachment_id"])
-        attachment= request.env["ir.attachment"].search([("id","=",request.session["attachment_id"])])
+        attachment= request.env["ir.attachment"].search([("id","=",request.session['listt'])])
         attachment.res_id=leads.id
         attachment.res_model = leads._name
 
@@ -509,19 +520,82 @@ class documentation(http.Controller):
         print(post.get('option'))
         if post.get("option") == 'yes':
             print('yeah')
-            return request.render('ol_engipartner_web.view_project')
+            project_project_rec = request.env['project.project'].sudo().search([])
+            return request.render('ol_engipartner_web.view_project',
+                                  {'project_project_rec': project_project_rec})
 
         else:
             print('nah')
+            state_rec = request.env['res.country.state'].sudo().search([('country_id', '=', 233)])
+            country_rec = request.env['res.country'].sudo().search([('id', '=', 233)])
             project_project_rec = request.env['project.project'].sudo().search([])
-            return request.render('ol_engipartner_web.new_project_documentation',
-                                  {'project_project_rec': project_project_rec})
+            return request.render('ol_engipartner_web.new_project_documentation',{'project_project_rec': project_project_rec,'state_rec': state_rec, 'country_rec': country_rec})
+
+
+
+
+
+class inheritdocumentation(http.Controller):
+    @http.route(['/inherit_doc'], type='http', auth='user', website=True, csrf=False)
+    def index(self, **post):
+
+        request.session['project_project'] = post.get('project_project')
+        print('ugot',post.get('project_project'))
+        return request.render('ol_engipartner_web.inherit_doc')
+
+class documentationsubmition(http.Controller):
+    @http.route(['/documentation_submission'], type='http' , auth='user', website='True', csrf=False)
+
+    def index(self, **post):
+
+        print('multiple files', request.httprequest.files.getlist('attachments'))
+        print('project id', request.session['project_project'])
+        attachments = request.env['ir.attachment']
+        listt = []
+        for i in request.httprequest.files.getlist('attachments'):
+            print(i)
+            name = str(i.filename)
+            file = i
+            print('heyb', name, 'noice', file)
+
+            print(type(file))
+
+            request.registry['upload_docs'] = file
+            data = file.read()
+            print(type(data))
+
+            request.registry['upload_doc_new'] = data
+            attachment_id = attachments.sudo().create({
+                'name': name,
+                'type': 'binary',
+                'datas': base64.encodebytes(data),
+            })
+            value = {
+                'attachment': attachment_id
+            }
+            request.session["attachment_id"] = attachment_id.id
+            print(request.registry['upload_docs'])
+            print('hello')
+            listt.append(attachment_id.id)
+            print(listt, 'list')
+            request.session['listt'] = listt
+            lead = request.env['project.project'].search([('id', '=', request.session['project_project'])])
+            print("the value of lead is", lead)
+            request.session['leads'] = lead.id
+            print(request.session["attachment_id"])
+            attachment = request.env["ir.attachment"].search([("id", "=", request.session['listt'])])
+            attachment.res_id = lead.id
+            attachment.res_model = lead._name
+
+
+        return request.render('ol_engipartner_web.documentation_submission')
 
 
 class viewprojectdocumenetaion(http.Controller):
 
     @http.route(['/new_project_documentation'], type='http', auth="user", website=True, csrf=False)
     def index(self, **post):
+
 
         return request.render('ol_engipartner_web.new_project_documentation')
 
@@ -530,17 +604,202 @@ class adddocumenetaionrequest(http.Controller):
 
     @http.route(['/add_documentation_request'], type='http', auth="user", website=True, csrf=False)
     def index(self, **post):
+        # request.session['option1'] = post.get('option1')
+        # print(post.get('option1'))
+
+        # if post.get("option1") == None:
+        request.session['name'] = post.get('name')
+        print(post.get('name'))
+        request.session['city'] = post.get('city')
+        print(post.get('city'))
+        request.session['address'] = post.get('address')
+        print(post.get('address'))
+        request.session['state'] = post.get('state')
+        print(post.get('state'))
+        request.session['country'] = post.get('country')
+        print(post.get('country'))
+        request.session['authority'] = post.get('authority')
+        print(post.get('authority'))
+        request.session['external'] = post.get('external')
+        print(post.get('external'))
+        request.session['utility'] = post.get('utility')
+        print(post.get('utility'))
+        request.session['link'] = post.get('link')
+        print(post.get('link'))
+        request.session['business_unit'] = post.get('business_unit')
+        print(post.get('business_unit'))
+        return request.render('ol_engipartner_web.add_documentation_request')
+
+        # elif post.get("option1") == 'yes':
+        #     print('yeahhhhhhhh')
+        #     return request.render('ol_engipartner_web.documentation_type')
+        # else:
+        #     print('nahhhhhhhhhh')
+
+        # return request.render('ol_engipartner_web.add_doc')
+
+class documentation_type(http.Controller):
+
+    @http.route(['/documentation_type'], type='http', auth="user", website=True, csrf=False)
+    def index(self, **post):
         request.session['option1'] = post.get('option1')
         print(post.get('option1'))
-
+        doc_type_rec = request.env['document.type'].sudo().search([])
+        stamp_type_rec = request.env['stamp.type'].sudo().search([])
         if post.get("option1") == 'yes':
-            print('yeahhhhhhhh')
-            return request.render('ol_engipartner_web.documentation_type')
+            return request.render('ol_engipartner_web.documentation_type',
+                                  {'doc_type_rec': doc_type_rec,'stamp_type_rec': stamp_type_rec})
         else:
             print('nahhhhhhhhhh')
 
-        return request.render('ol_engipartner_web.add_documentation_request')
+        return request.render('ol_engipartner_web.add_doc')
 
+
+class upload_another_doc(http.Controller):
+
+    @http.route(['/upload_another_doc'], type='http', auth="user", website=True, csrf=False)
+    def index(self, **post):
+        request.session['doctype'] = post.get('doctype')
+        print(post.get('doctype'))
+        request.session['stamp_type'] = post.get('stamp_type')
+        print(post.get('stamp_type'))
+        request.session['permit_no'] = post.get('permit_no')
+        print(post.get('permit_no'))
+        request.session['installation_date'] = post.get('installation_date')
+        print(post.get('installation_date'))
+        request.session['inspection_date'] = post.get('inspection_date')
+        print(post.get('inspection_date'))
+
+
+
+
+
+        return request.render('ol_engipartner_web.upload_another_doc')
+
+class another_doc_upload_sucessfully(http.Controller):
+
+    @http.route(['/another_doc_upload_sucessfully'], type='http', auth="user", website=True, csrf=False)
+    def index(self, **post):
+        print('multiple files', request.httprequest.files.getlist('attachments'))
+        lead = {
+            'name': request.session['name'],
+            'address': (request.session['address']),
+            'city': request.session['city'],
+            'utility': (request.session['utility']),
+            'external_id': (request.session['external']),
+            'external_links': (request.session['link']),
+            'jurisdiction': (request.session['authority']),
+            'business_unit': (request.session['business_unit']),
+            'state': (request.session['state']),
+            'country': (request.session['country']),
+            'doc_type': (request.session['doctype']),
+            'stamp_type': request.session['stamp_type'],
+            'permit_number': (request.session['permit_no']),
+            'installation_date': (request.session['installation_date']),
+            'inspection_date': (request.session['inspection_date']),
+        }
+        leads = request.env['project.project'].create(lead)
+        print('value of lead is', leads)
+        attachments = request.env['ir.attachment']
+        listt = []
+        for i in request.httprequest.files.getlist('attachments'):
+            print(i)
+            name = str(i.filename)
+            file = i
+            print('heyb', name, 'noice', file)
+
+            print(type(file))
+
+            request.registry['upload_another_doc'] = file
+            data = file.read()
+            print(type(data))
+
+            request.registry['upload_another_doc_new'] = data
+            attachment_id = attachments.sudo().create({
+                'name': name,
+                'type': 'binary',
+                'datas': base64.encodebytes(data),
+            })
+            value = {
+                'attachment': attachment_id
+            }
+            request.session["attachment_id"] = attachment_id.id
+            print(request.registry['upload_another_doc'])
+            print('hello')
+            listt.append(attachment_id.id)
+            print(listt, 'list')
+            request.session['listt'] = listt
+            print("the value of lead is", leads)
+            request.session['leads'] = leads.id
+            print(request.session["attachment_id"])
+            attachment = request.env["ir.attachment"].search([("id", "=", request.session['listt'])])
+            attachment.res_id = leads.id
+            attachment.res_model = leads._name
+
+        return request.render('ol_engipartner_web.another_doc_upload_sucessfully')
+
+
+
+class adddocumenetaionsubmission(http.Controller):
+
+    @http.route(['/add_documentation_submission'], type='http', auth='user', website=True, csrf=False)
+
+    def index(self):
+
+       print('multiple files', request.httprequest.files.getlist('documentation'))
+
+       lead = {
+           'name': request.session['name'],
+           'address': (request.session['address']),
+           'city': request.session['city'],
+           'utility': (request.session['utility']),
+           'external_id': (request.session['external']),
+           'external_links': (request.session['link']),
+           'jurisdiction': (request.session['authority']),
+           'business_unit': (request.session['business_unit']),
+           'state': (request.session['state']),
+           'country': (request.session['country']),
+       }
+       leads = request.env['project.project'].create(lead)
+       print('value of lead is', leads)
+       attachments = request.env['ir.attachment']
+       listt = []
+       for i in request.httprequest.files.getlist('documentation'):
+           print(i)
+           name = str(i.filename)
+           file = i
+           print('heyb', name, 'noice', file)
+
+           print(type(file))
+
+           request.registry['upload_docu'] = file
+           data = file.read()
+           print(type(data))
+
+           request.registry['upload_doc_new'] = data
+           attachment_id = attachments.sudo().create({
+               'name': name,
+               'type': 'binary',
+               'datas': base64.encodebytes(data),
+           })
+           value = {
+               'attachment': attachment_id
+           }
+           request.session["attachment_id"] = attachment_id.id
+           print(request.registry['upload_docu'])
+           print('hello')
+           listt.append(attachment_id.id)
+           print(listt, 'list')
+           request.session['listt'] = listt
+           print("the value of lead is", leads)
+           request.session['leads'] = leads.id
+           print(request.session["attachment_id"])
+           attachment = request.env["ir.attachment"].search([("id", "=", request.session['listt'])])
+           attachment.res_id = leads.id
+           attachment.res_model = leads._name
+
+
+       return request.render('ol_engipartner_web.add_documentation_submission')
 
 class viewproject(http.Controller):
 

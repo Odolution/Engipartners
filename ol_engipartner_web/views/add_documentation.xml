@@ -21,7 +21,7 @@
                             <input type="radio" id="html" name="option" value="yes"/>
                             <label for="html">Yes</label>
                             <br/>
-                            <label class="btn btn-default" for="option" style="color:red;">If you do NOT have an open project to add a Document Request, select No.
+                            <label class="btn btn-default" for="option" style="color:red;">If you do not have an open project to add a Document Request, select No.
                             </label>
                             <br/>
 

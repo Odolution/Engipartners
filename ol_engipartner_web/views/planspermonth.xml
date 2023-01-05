@@ -9,7 +9,7 @@
                             <span class="s_parallax_bg oe_img_bg"
                                   style="background-image: url('/web/image/website.s_banner_default_image'); background-position: 50% 0;"/>
                             <div class="o_we_bg_filter bg-black-50"/>
-                            <div class="container">
+                            <div class="container" style="padding-left: 25px;">
                                 <h1> Partner with us</h1>
                             </div>
                         </section>
@@ -31,16 +31,16 @@
                                 <label class="btn btn-default" for="option">
                                 </label>
                                 <br/>
-                                <input type="radio" id="html" name="option2" value="approx3"/>
-                                <label for="html" class="align-left">Approximately 3-6
+
+                                <label for="html" class="align-left"> <input type="radio" id="html" name="option2" value="approx3"/> Approximately 3-6
                                 </label>
                                 <br/>
-                                <input type="radio" id="css" name="option2" value="approx7"/>
-                                <label for="css" class="align-left">Approximately 7-12
+
+                                <label for="css" class="align-left"> <input type="radio" id="css" name="option2" value="approx7"/> Approximately 7-12
                                 </label>
                                 <br/>
-                                 <input type="radio" id="css" name="option2" value="approx13"/>
-                                <label for="css" class="align-left;">Approximately 13+
+
+                                <label for="css" class="align-left;"> <input type="radio" id="css" name="option2" value="approx13"/> Approximately 13+
                                 </label>
 
 
@@ -56,7 +56,7 @@
                         </div>
                     </form>
                     <center>
-                    <p style="color: black; font-size:15px; ">Please Answer The Question Truthfully
+                    <p style="color: black; font-size:15px; ">
                             </p></center>
                 </div>
             </div>

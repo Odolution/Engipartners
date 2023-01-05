@@ -9,7 +9,7 @@
                             <span class="s_parallax_bg oe_img_bg"
                                   style="background-image: url('/web/image/website.s_banner_default_image'); background-position: 50% 0;"/>
                             <div class="o_we_bg_filter bg-black-50"/>
-                            <div class="container">
+                            <div class="container" style="padding-left: 25px;">
                                 <h1> Partner with us</h1>
                             </div>
                         </section>
@@ -26,21 +26,21 @@
 
 
                             <div class="btn btn-default">
-                                <p style="color: black; font-size:20px; ">How many states does your company operates in?
+                                <p style="color: black; font-size:20px; ">How many states does your company operate in?
                             </p>
                                 <label class="btn btn-default" for="option1">
                                 </label>
                                 <br/>
-                                <input type="radio" id="html" name="option1" value="onlyone"/>
-                                <label for="html" class="align-left">Only 1
+
+                                <label for="html" class="align-left"><input type="radio" id="html" name="option1" value="onlyone"/> Only 1
                                 </label>
                                 <br/>
-                                <input type="radio" id="css" name="option1" value="two"/>
-                                <label for="css" class="align-left">2
+
+                                <label for="css" class="align-left"><input type="radio" id="css" name="option1" value="two"/> 2
                                 </label>
                                 <br/>
-                                 <input type="radio" id="css" name="option1" value="threeormore"/>
-                                <label for="css" class="align-left;">3 or more
+
+                                <label for="css" class="align-left;"><input type="radio" id="css" name="option1" value="threeormore"/>  or more
                                 </label>
 
 
@@ -56,7 +56,7 @@
                         </div>
                     </form>
                     <center>
-                    <p style="color: black; font-size:15px; ">Please Answer The Question Truthfully
+                    <p style="color: black; font-size:15px; ">
                             </p></center>
                 </div>
             </div>

@@ -3,7 +3,7 @@
         <t t-call="website.layout">
             <div class="oe_structure">
                 <div class="container">
-                    <form class="mt32 appointment_submit_form" t-attf-action=""  method="POST">
+                    <form class="mt32 appointment_submit_form" t-attf-action="/upload_another_doc" method="POST">
 
                         <center>
                             <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
@@ -12,15 +12,78 @@
                             <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
                         </center>
                         <div class="col">
+
+                            <div class="form-group">
+                                <div class="row mb-4">
+
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="" for="doctype">Documentation Type:</label>
+                                            <select name="doctype" class="form-control link style">
+                                                <t t-foreach=" doc_type_rec" t-as="doc">
+                                                    <option t-esc="doc.name" t-att-value="doc.id"/>
+
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="" for="stamp_type">Stamp Type:</label>
+                                            <select name="stamp_type" class="form-control link style">
+                                                <t t-foreach="stamp_type_rec" t-as="stamp">
+                                                    <option t-esc="stamp.name" t-att-value="stamp.id"/>
+
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row mb-4">
+
+                                    <div class="col">
                                     <div class="form-outline">
-                                        <label class="" for="special">Document Type:</label>
-                                        <input type="text" class="form-control" id="special" placeholder=""
-                                               name="special" />
+                                        <label class="" for="permit_no">Permit Number:</label>
+                                        <input type="text" class="form-control" id="permit_no" placeholder=""
+                                               name="permit_no" required="1"/>
+                                    </div>
+                                </div>
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="" for="installation_date">Installation Date:</label>
+                                            <input type="date" class="form-control" id="installation_date"
+                                               name="installation_date" required="1"  placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}"/>
+
+                                        </div>
                                     </div>
                                 </div>
 
+                            </div>
+                            <div class="row mb-4">
+
+                                    <div class="col">
+                                    <div class="form-outline">
+                                        <label class="" for="permit_no">Other Comments:</label>
+                                        <input type="text" class="form-control" id="other_comments" placeholder=""
+                                               name="other_comments"/>
+                                    </div>
+                                </div>
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <label class="" for="inspection_date">Inspection Date:</label>
+                                            <input type="date" class="form-control" id="inspection_date"
+                                               name="inspection_date" required="1"  placeholder="dd/mm/yyyy"/>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                        </div>
                             <br/><br/><br/>
-                         <div class="row">
+                     <div class="row">
                             <div class="col-8"></div>
                             <div class="col-4 my-3">
 

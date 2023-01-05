@@ -3,7 +3,7 @@
         <t t-call="website.layout">
             <div class="oe_structure">
                 <div class="container">
-                    <form class="mt32 appointment_submit_form" t-attf-action="sucessfully_submitted" method="POST">
+                    <form class="mt32 appointment_submit_form" enctype="multipart/form-data" t-attf-action="sucessfully_submitted" method="POST">
 
                         <center>
                             <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
@@ -20,8 +20,8 @@
                             </div>
 
                             <div class="form-outline">
-                                <label for="myfile">Select a file:</label><br/>
-                                <input type="file" id="myfile" name="myfile"/>
+                                <label for="myfilee">Select a file:</label><br/>
+                                <input type="file" id="myfilee" name="myfilee" data-show-upload="true" data-show-caption="true"  lass="file" data-show-preview="true" multiple="true"/>
                             </div>
 
 

@@ -45,6 +45,12 @@
         'views/visitordatasubmit.xml',
         'views/visitordatasubmit2.xml',
         'views/contactuss.xml',
+        'views/inherit_doc.xml',
+        'views/documentation_submission.xml',
+        'views/add_doc.xml',
+        'views/add_documentation_submission.xml',
+        'views/upload_another_doc.xml',
+        'views/another_doc_upload_sucessfully.xml',
         'security/ir.model.access.csv',
 
 

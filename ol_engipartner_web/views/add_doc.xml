@@ -1,0 +1,43 @@
+<odoo>
+    <template id="add_doc" name="Add Documentation">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+
+                    <form class="mt32 appointment_submit_form" enctype="multipart/form-data" t-attf-action="/add_documentation_submission"
+                          method="POST">
+                        <center>
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                            <h3 style="color: black;">Upload Documentation</h3>
+                            <td style="color:red;">Once the file is uploaded you won't be able to see here. But you can
+                                see those attachment in Project later
+                            </td>
+
+                            <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
+                        </center>
+
+                        <div class="col">
+                            <div class="form-outline">
+                                <label class="" for="upload_docu">Upload Documentation:</label>
+                                <br/>
+                                <input name="documentation" type="file" class="file" data-show-upload="true"
+                                       data-show-caption="true" lass="file" data-show-preview="true" multiple="true"/>
+
+                            </div>
+                        </div>
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 my-3">
+                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </t>
+</template>
+        </odoo>
