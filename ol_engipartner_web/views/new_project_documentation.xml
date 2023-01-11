@@ -148,8 +148,8 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="" for="external">Project External ID:</label>
-                                        <input type="text" class="form-control" id="external" placeholder=""
-                                               name="external"/>
+                                        <input type="text" class="form-control" id="external" placeholder="External ID will be automatically created after the sumission"
+                                               name="external" readonly="1"/>
                                     </div>
                                 </div>
                                 <div class="col">

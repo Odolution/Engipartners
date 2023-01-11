@@ -10,7 +10,9 @@ class submit_redline(http.Controller):
 
     @http.route(['/Submit_Redline'], type='http', auth="user", website=True, csrf=False)
     def index(self, **post):
-        project_project_rec = request.env['project.project'].sudo().search([])
+        current_user = request.env.user.id
+        project_project_rec = request.env['project.project'].sudo().search([('user_id', '=', current_user)])
+
 
         return request.render('ol_engipartner_web.submit_redline',{'project_project_rec': project_project_rec,})
 
@@ -51,8 +53,7 @@ class sucessfully(http.Controller):
         print(request.httprequest.files.getlist('myfilee'),'khurram')
         request.session['myfilee'] = post.get('myfilee')
         print('filename', post.get('myfilee'))
-        # Multiple Attachment
-
+        # Multiple Attachment by us
         attachments = request.env['ir.attachment']
         listt = []
         for i in request.httprequest.files.getlist('myfilee'):
@@ -65,37 +66,38 @@ class sucessfully(http.Controller):
 
             request.registry['myfilee'] = file
             data = file.read()
-            # file.close()
+
             print(type(data))
 
             request.registry['myfilee_new'] = data
             attachment_id = attachments.sudo().create({
                 'name': name,
-                # 'res_id': ,
+
                 'type': 'binary',
-                # 'res_model': 'project.project',
+
 
                 'datas': base64.encodebytes(data),
             })
             value = {
                 'attachment': attachment_id
             }
+            # Multiple Attachment by us
             request.session["attachment_id"] = attachment_id.id
 
-            # print(request.session['attachment_id'])
+
             print(request.registry['myfilee'])
             print('hello')
             listt.append(attachment_id.id)
 
         print(listt, 'List Values')
-        # request.session['listt'] = request.httprequest.files.getlist(listt)
+
         request.session['listt'] = listt
 
-        lead = request.env['project.project'].search([('id', '=', request.session['project_project'])])
+        lead = request.env['project.project'].sudo().search([('id', '=', request.session['project_project'])])
         print("the value of lead is", lead)
         request.session['leads'] = lead.id
         print(request.session["attachment_id"])
-        attachment = request.env["ir.attachment"].search([("id", "=", request.session['listt'])])
+        attachment = request.env["ir.attachment"].sudo().search([("id", "=", request.session['listt'])])
         attachment.res_id = lead.id
         attachment.res_model = lead._name
 

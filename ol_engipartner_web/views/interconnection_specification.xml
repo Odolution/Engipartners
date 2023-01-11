@@ -52,7 +52,7 @@
                             <div class="col-4 my-3">
 
 
-                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                                <button type="submit" class="btn btn-dark">NEXT</button>
                             </div>
                         </div>
                     </form>

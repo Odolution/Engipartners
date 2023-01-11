@@ -85,7 +85,7 @@ class stamptypedoc(models.Model):
 class inheritincompany(models.Model):
     _inherit = 'project.project'
 
-    external_id = fields.Char(string='Project External ID')
+    external_id = fields.Char(string='Project External ID', required=False, copy=False, readonly=True, index=True, default=lambda self: _('New'))
     address = fields.Char(string='Address')
     city = fields.Char(string='City')
     utility = fields.Char(string='Utility')
@@ -141,6 +141,16 @@ class inheritincompany(models.Model):
     ec_permit = fields.Boolean(string='EC Permit')
     coi = fields.Boolean(string='COI')
 
+    # sequence field fuction in car inspection form
+    @api.model
+    def create(self, vals):
+        # print(vals.get('name_seq'))
+        if vals.get('external_id', _('New')) == _('New'):
+            vals['external_id'] = self.env['ir.sequence'].next_by_code('project.project') or _('New')
+        result = super(inheritincompany, self).create(vals)
+        return result
+
+
 
 
 
@@ -150,7 +160,7 @@ class inheritincompany(models.Model):
     @api.onchange('country')
     def set_values_to(self):
         if self.country:
-            ids = self.env['res.country.state'].search([('country_id', '=', self.country.id)])
+            ids = self.env['res.country.state'].sudo().search([('country_id', '=', self.country.id)])
             return {
                 'domain': {'state': [('id', 'in', ids.ids)], }
             }

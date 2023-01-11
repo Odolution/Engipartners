@@ -1,6 +1,6 @@
 from odoo import http
 from odoo.http import request
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 import base64
 import requests
@@ -293,19 +293,28 @@ class project_add_doc(http.Controller):
         attachments = request.env['ir.attachment']
         listt = []
         for i in request.httprequest.files.getlist('attachment'):
+            print("1")
             print(i)
             name = str(i.filename)
+            print("2")
             file = i
             print('heyb',name,'noice', file)
+            print("3")
+
 
             print(type(file))
+            print("4")
 
             request.registry['upload_doc'] = file
+            print("5")
             data = file.read()
-            file.close()
+            print("6")
+            # file.close()
             print(type(data))
+            print("7")
 
             request.registry['upload_doc_new'] = data
+            print("8")
             attachment_id = attachments.sudo().create({
                 'name': name,
                 # 'res_id': ,
@@ -317,19 +326,24 @@ class project_add_doc(http.Controller):
             value = {
                 'attachment' : attachment_id
             }
+            print("9")
             request.session["attachment_id"]=attachment_id.id
+            print("10")
 
             # print(request.session['attachment_id'])
             print(request.registry['upload_doc'])
+            print("11")
             print('hello')
             listt.append(attachment_id.id)
+            print("12")
 
         print(listt, 'List Values')
         # request.session['listt'] = request.httprequest.files.getlist(listt)
         request.session['listt'] = listt
+        print("13")
 
 
-        return request.render('ol_engipartner_web.project_add_doc',value)
+        return request.render('ol_engipartner_web.project_add_doc')
 
 class documentation_detail(http.Controller):
 
@@ -385,7 +399,7 @@ class documentation_detail(http.Controller):
             'address': (request.session['address'] ),
             'city': request.session['city'],
             'utility': (request.session['utility']),
-            'external_id':(request.session['external']),
+            'external_id':request.env['ir.sequence'].sudo().next_by_code('project.project') or _('New'),
             'external_links':(request.session['link']),
             'jurisdiction':(request.session['authority']),
             'business_unit': (request.session['business_unit']),
@@ -423,11 +437,11 @@ class documentation_detail(http.Controller):
 
 
         }
-        leads = request.env['project.project'].create(lead)
+        leads = request.env['project.project'].sudo().create(lead)
         print('value of lead is', leads)
         request.session['leads'] = leads.id
         print(request.session["attachment_id"])
-        attachment= request.env["ir.attachment"].search([("id","=",request.session['listt'])])
+        attachment= request.env["ir.attachment"].sudo().search([("id","=",request.session['listt'])])
         attachment.res_id=leads.id
         attachment.res_model = leads._name
 
@@ -478,7 +492,7 @@ class documentationdetailsubmission(http.Controller):
 
         }
         print('hello', request.session['leads'])
-        anotherlead = request.env['project.project'].search([('id', '=', request.session['leads'])])
+        anotherlead = request.env['project.project'].sudo().search([('id', '=', request.session['leads'])])
         print("checkinggggg", request.session['leads'])
 
         anotherlead.write({
@@ -520,7 +534,8 @@ class documentation(http.Controller):
         print(post.get('option'))
         if post.get("option") == 'yes':
             print('yeah')
-            project_project_rec = request.env['project.project'].sudo().search([])
+            current_user = request.env.user.id
+            project_project_rec = request.env['project.project'].sudo().search([('user_id', '=', current_user)])
             return request.render('ol_engipartner_web.view_project',
                                   {'project_project_rec': project_project_rec})
 
@@ -579,11 +594,11 @@ class documentationsubmition(http.Controller):
             listt.append(attachment_id.id)
             print(listt, 'list')
             request.session['listt'] = listt
-            lead = request.env['project.project'].search([('id', '=', request.session['project_project'])])
+            lead = request.env['project.project'].sudo().search([('id', '=', request.session['project_project'])])
             print("the value of lead is", lead)
             request.session['leads'] = lead.id
             print(request.session["attachment_id"])
-            attachment = request.env["ir.attachment"].search([("id", "=", request.session['listt'])])
+            attachment = request.env["ir.attachment"].sudo().search([("id", "=", request.session['listt'])])
             attachment.res_id = lead.id
             attachment.res_model = lead._name
 
@@ -686,7 +701,7 @@ class another_doc_upload_sucessfully(http.Controller):
             'address': (request.session['address']),
             'city': request.session['city'],
             'utility': (request.session['utility']),
-            'external_id': (request.session['external']),
+            'external_id': request.env['ir.sequence'].sudo().next_by_code('project.project') or _('New'),
             'external_links': (request.session['link']),
             'jurisdiction': (request.session['authority']),
             'business_unit': (request.session['business_unit']),
@@ -732,7 +747,7 @@ class another_doc_upload_sucessfully(http.Controller):
             print("the value of lead is", leads)
             request.session['leads'] = leads.id
             print(request.session["attachment_id"])
-            attachment = request.env["ir.attachment"].search([("id", "=", request.session['listt'])])
+            attachment = request.env["ir.attachment"].sudo().search([("id", "=", request.session['listt'])])
             attachment.res_id = leads.id
             attachment.res_model = leads._name
 
@@ -747,20 +762,24 @@ class adddocumenetaionsubmission(http.Controller):
     def index(self):
 
        print('multiple files', request.httprequest.files.getlist('documentation'))
-
+       # new_id = self.env['ir.sequence'].search([('prefix', '=', 'PJ')])
+       # proj_id  = new_id.number_next_actual+1
+       # print(proj_id, 'project IDs')
        lead = {
            'name': request.session['name'],
            'address': (request.session['address']),
            'city': request.session['city'],
            'utility': (request.session['utility']),
-           'external_id': (request.session['external']),
+           'external_id': request.env['ir.sequence'].sudo().next_by_code('project.project') or _('New'),
            'external_links': (request.session['link']),
            'jurisdiction': (request.session['authority']),
            'business_unit': (request.session['business_unit']),
            'state': (request.session['state']),
            'country': (request.session['country']),
+
        }
        leads = request.env['project.project'].create(lead)
+
        print('value of lead is', leads)
        attachments = request.env['ir.attachment']
        listt = []
@@ -794,7 +813,7 @@ class adddocumenetaionsubmission(http.Controller):
            print("the value of lead is", leads)
            request.session['leads'] = leads.id
            print(request.session["attachment_id"])
-           attachment = request.env["ir.attachment"].search([("id", "=", request.session['listt'])])
+           attachment = request.env["ir.attachment"].sudo().search([("id", "=", request.session['listt'])])
            attachment.res_id = leads.id
            attachment.res_model = leads._name
 

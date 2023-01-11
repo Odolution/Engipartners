@@ -6,7 +6,7 @@
                     <form class="mt32 appointment_submit_form" t-attf-action=""  method="POST">
                           <center>
                             <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
-                            <h3 style="color: black;">Your Revision has been successfully submitted</h3>
+                            <h3 style="color: green;">Your Revision has been successfully submitted</h3>
 
                             <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
                         </center>

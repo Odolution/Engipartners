@@ -10,7 +10,11 @@ class viewurproject(http.Controller):
 
     @http.route(['/viewurproject'], type='http', auth="user", website=True, csrf=False)
     def index(self, **post):
-        project_byproject_rec = request.env['project.project'].sudo().search([])
+
+        current_user = request.env.user.id
+        project_byproject_rec  = request.env['project.project'].sudo().search([('user_id','=',current_user)])
+        print(project_byproject_rec, "Current User")
+
 
         return request.render('ol_engipartner_web.viewurproject', {'project_byproject_rec': project_byproject_rec, })
 
@@ -20,7 +24,7 @@ class viewurprojectform(http.Controller):
     def index(self, **post):
         request.session['project_byproject'] = post.get('project_byproject')
         print('babo',post.get('project_byproject'))
-        projecct = request.env['project.project'].search([('id', '=', post.get('project_byproject'))])
+        projecct = request.env['project.project'].sudo().search([('id', '=', post.get('project_byproject'))])
         request.session['name'] = projecct.name
         request.session['city'] = projecct.city
         request.session['address'] = projecct.address

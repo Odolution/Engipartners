@@ -6,12 +6,16 @@
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="type">form</field>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='label_tasks']" position="before">
+                <field name="external_id"/>
+
+            </xpath>
 
             <notebook>
                 <page string="New Project Details">
                     <group>
                     <group>
-                        <field name="external_id"/>
+
                         <field name="address"/>
                         <field name="city"/>
                         <field name="utility"/>
@@ -88,7 +92,7 @@
 
 
                     </group>
-                    <group string="Review">
+                    <group string="Adders">
 <!--                    <field name="inverter"/>-->
                     <field name="another_battery"/>
                     <field name="ballasted"/>
@@ -183,4 +187,9 @@
 
         </field>
     </record>
+<!--    <record id ="project_sequence" model="ir.sequence">-->
+<!--        -->
+
+
+<!--    </record>-->
 </odoo>

@@ -3,69 +3,65 @@
         <t t-call="website.layout">
             <div class="oe_structure">
                 <div class="container">
-                    <form class="mt32 appointment_submit_form" t-attf-action="/doc_detail_submission"  method="POST">
-                          <center>
+                    <form class="mt32 appointment_submit_form" t-attf-action="/doc_detail_submission" method="POST">
+                        <center>
                             <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
-                            <h3 style="color: black;">Documentation Detail </h3>
+                            <h3 style="color: black;">Documentation Detail</h3>
 
                             <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
                         </center>
-                         <div class="form-group">
+                        <div class="form-group">
 
-                        <div class="col">
-                                   <div class="form-outline">
-                                         <label class="" for="stamp_type">Stamp Type:</label>
-                                <select name="stamp_type" class="form-control link style">
-                                    <t t-foreach="stamp_type_rec" t-as="stamp">
-                                        <option t-esc="stamp.name" t-att-value="stamp.id"/>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="" for="stamp_type">Stamp Type:</label>
+                                    <select name="stamp_type" class="form-control link style">
+                                        <t t-foreach="stamp_type_rec" t-as="stamp">
+                                            <option t-esc="stamp.name" t-att-value="stamp.id"/>
 
-                                    </t>
-                                </select>
-                                    </div>
+                                        </t>
+                                    </select>
                                 </div>
-                          <div class="form-outline">
-                                        <label class="" for="other_com">Other Comment:</label>
-                                        <input type="text" class="form-control" id="other_com" placeholder=""
-                                               name="other_com" />
-                                    </div>
+
+                            <div class="form-outline">
+                                <label class="" for="other_com">Other Comment:</label>
+                                <input type="text" class="form-control" id="other_com" placeholder=""
+                                       name="other_com"/>
                             </div>
+                                </div>
 
 
 
-                         <div class="align-left" required="1" >
-                             <label class="btn btn-default" for="doc_type"><strong>Document Type</strong></label>
+                        <div class="align-left" required="1">
+                            <label class="btn btn-default" for="doc_type">
+                                <strong>Document Type</strong>
+                            </label>
                             <br/>
-                            <input type="checkbox" id="eng_plan" name="eng_plan" value="eng_plan"  />
+                            <input type="checkbox" id="eng_plan" name="eng_plan" value="eng_plan"/>
                             <label for="css">Engineering Plans</label>
                             <br/>
 
-                            <input type="checkbox" id="eng_letter" name="eng_letter" value="eng_letter" />
+                            <input type="checkbox" id="eng_letter" name="eng_letter" value="eng_letter"/>
                             <label for="html">Engineering Letter</label>
                             <br/>
-                            <input type="checkbox" id="inspec_Form" name="inspec_Form" value="inspec_Form" />
+                            <input type="checkbox" id="inspec_Form" name="inspec_Form" value="inspec_Form"/>
                             <label for="css">Inspection Form</label>
                             <br/>
-                            <input type="checkbox" id="cvc_permit" name="cvc_permit" value="cvc_permit" />
-                            <label for="css">  CVC Permit</label>
+                            <input type="checkbox" id="cvc_permit" name="cvc_permit" value="cvc_permit"/>
+                            <label for="css">CVC Permit</label>
                             <br/>
-                            <input type="checkbox" id="ec_permit" name="ec_permit" value="ec_permit" />
+                            <input type="checkbox" id="ec_permit" name="ec_permit" value="ec_permit"/>
                             <label for="css">EC Permit</label>
-                             <br/>
-                            <input type="checkbox" id="coi" name="coi" value="coi" />
+                            <br/>
+                            <input type="checkbox" id="coi" name="coi" value="coi"/>
                             <label for="css">COI</label>
-                              <br/>
-
+                            <br/>
+                             </div>
 
                         </div>
 
 
-
-
-
-
-
-
-                         <div class="row">
+                        <div class="row">
                             <div class="col-8"></div>
                             <div class="col-4 my-3">
 

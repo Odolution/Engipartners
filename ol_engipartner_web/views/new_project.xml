@@ -137,8 +137,8 @@
                                 <div class="col">
                                     <div class="form-outline">
                                          <label class="" for="external">Project External ID:</label>
-                                        <input type="text" class="form-control" id="external" placeholder=""
-                                               name="external" />
+                                        <input type="text" class="form-control" id="external" placeholder="External ID will be automatically generated after the submission"
+                                               name="external" readonly="1" />
                                     </div>
                                 </div>
                                 <div class="col">
@@ -179,7 +179,7 @@
                             <div class="col-4 my-3">
 
 
-                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                                <button type="submit" class="btn btn-dark">NEXT</button>
                             </div>
                         </div>
                     </form>

@@ -10,10 +10,11 @@
                             <h3 style="color: black;">Create Project Request</h3>
                             <hr style="height: 1px; border-width: 0; color: black; background-color: black;"/>
 
-                         <div class="btn btn-default" required="1">
-                             <label class="btn btn-default" for="Review"><p style="color:red;"> Review and select adders as necessary</p></label>
+
+                         <div class="btn btn-default" required="1" style="text-align:left;">
+                             <label class="btn btn-default" for="Review" required="1"><p style="color:red;"> Review and select adders as necessary</p></label>
                             <br/>
-                            <input type="checkbox" id="battery" name="battery" value="battery"  />
+                            <input type="checkbox" id="battery" name="battery" value="battery"/>
                             <label for="css">Battery</label>
                             <br/>
 
@@ -57,7 +58,7 @@
                             <div class="col-4 my-3">
 
 
-                                <button type="submit" class="btn btn-dark">SUBMIT</button>
+                                <button type="submit" class="btn btn-dark">NEXT</button>
                             </div>
                         </div>
                     </form>

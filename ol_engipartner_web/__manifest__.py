@@ -51,6 +51,7 @@
         'views/add_documentation_submission.xml',
         'views/upload_another_doc.xml',
         'views/another_doc_upload_sucessfully.xml',
+        'data/sequence.xml',
         'security/ir.model.access.csv',
 
 
